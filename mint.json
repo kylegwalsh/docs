@@ -1,12 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Lexicon",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
-  "openapi": "api.lexiconjs.com/v1/openapi.json",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -19,61 +18,31 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@lexiconjs.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://app.lexiconjs.com"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
   "anchors": [
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
+      "url": "docs/introduction"
+    }    
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": ["docs/get-started/introduction", "docs/get-started/quickstart"]
     },
     {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
+      "group": "Examples",
+      "pages": ["docs/examples/nested-formatting"]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "github": "https://github.com/odin-labs-tech"
   }
 }
