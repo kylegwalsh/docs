@@ -1,12 +1,6 @@
-# Mintlify Starter Kit
+# Lexicon Docs
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
-
-- Guide pages
-- Navigation
-- Customizations
-- API Reference pages
-- Use of popular components
+This is the repository containing Lexicon's documentation. It is primarily managed via [Mintlify](https://dashboard.mintlify.com).
 
 ### Development
 
