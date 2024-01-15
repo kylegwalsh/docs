@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Lexicon",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/images/logo-dark.svg",
+    "light": "/images/logo-light.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
@@ -29,6 +29,19 @@
     {
       "group": "Get Started",
       "pages": ["docs/get-started/introduction", "docs/get-started/quickstart"]
+    },
+        {
+      "group": "Usage",
+      "pages": [
+        {
+          "group": "Components",
+          "pages": ["docs/usage/components/translation-provider", "docs/usage/components/translated-text"]
+        },
+        {
+          "group": "Hooks",
+          "pages": ["docs/usage/hooks/use-translation", "docs/usage/hooks/use-translator", "docs/usage/hooks/use-locale"]
+        }
+      ]
     },
     {
       "group": "Examples",

@@ -1,0 +1,61 @@
+---
+title: '<TranslatedText />'
+sidebarTitle: '<TranslatedText />'
+description: 'Use the <TranslatedText /> component to automatically translate text elements.'
+---
+
+The `<TranslatedText />` component is the bread and butter of this library. It wraps simple strings and automatically translates them to the user's detected locale at run time.
+
+## Usage
+
+You can use this component to translate a text string by simply wrapping the string in your code. 
+
+```tsx
+<Text>
+</Text>
+```
+
+We usually recommend creating a `<Text />` component in your codebase so that these translations happen automatically behind the scenes. You can set it up to accept a `translationOptions` prop or something similar to pass down any desired translation settings.
+
+```tsx
+
+```
+
+## Properties
+
+<ResponseField name="context" type="string">
+
+</ResponseField>
+
+<ResponseField name="disableTranslation" type="boolean">
+
+</ResponseField>
+
+<ResponseField name="disableContextualTranslation" type="boolean">
+
+</ResponseField>
+
+<ResponseField name="enableSkeleton" type="boolean">
+
+</ResponseField>
+
+<ResponseField name="skeletonColor" type="string">
+
+</ResponseField>
+
+<ResponseField name="from" type="string">
+The current locale of the text we'd like to translate (the language you wrote the app in).
+
+*You should almost never provide this prop because it is set based on the `defaultLanguage` prop provided to the `<TranslationProvider />`.*
+
+Example: `en-US`
+</ResponseField>
+
+<ResponseField name="to" type="string">
+The locale we would like to translate the text to.
+
+*You should almost never provide this prop because it is set based on the `targetLanguage` prop provided to the `<TranslationProvider />` (which defaults to the user's detected locale).*
+
+Example: `es-ES`
+</ResponseField>
+
