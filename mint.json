@@ -25,9 +25,6 @@
     "name": "Dashboard",
     "url": "https://app.lexiconjs.com"
   },
-  "primaryTab": {
-    "name": "Documentation"
-  },
   "navigation": [
     {
       "group": "Get Started",
