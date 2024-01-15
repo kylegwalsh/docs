@@ -1,4 +1,58 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: 'useTranslator()'
+sidebarTitle: 'useTranslator()'
+description: 'Use the `useTranslator()` hook in order to access the underlying `translate` method and gain additional control.'
 ---
+
+## Usage
+
+The `useTranslator()` hook provides access to the underlying `translate` method, but you really shouldn't be using it very often. However, it is helpful in niche situations where you need to translate text on the fly (outside of standard component text or hooks).
+
+To use it, simply call the hook and extract the `translate` method. Then, you can call the `translate` method wherever you like in your code (such as in an effect).
+
+It can be useful in scenarios where you need finer grain control over translations, but most scenarios can be addressed via the `useTranslation()` hook.
+
+It's first argument should be the string you'd like to translate. You can also provide additional options as the second argument to adjust how translations are handled (the same way you can control translations in the `<TranslatedText />` component).
+
+```tsx
+import { useTranslator } from '@lexiconjs/react'
+import { Alert } from 'react-native'
+import React, { useEffect } from 'react'
+
+export const useMyNicheHook = () => {
+  // Grab the underlying translate function
+  const { translate } = useTranslator();
+
+  useEffect(() => {
+    // Make some kind of call that returns a string
+    const untranslatedString = retrieveString();
+
+    // Translate that string and show an alert
+    translate(untranslatedString)
+      .then(({ translation }) => {
+        Alert.alert(translation)
+      })
+      .catch((err) => {
+        console.error('Failed to translate', err)
+      })
+  }, [])
+}
+```
+
+*Keep in mind that this method is asynchronous and returns a promise.*
+
+## Response
+
+This hook returns a single function.
+
+<ResponseField name="translate" type="func">
+The underlying translate method used by the library.
+
+This is the same method that is invoked by `useTranslation()` and `<TranslatedText />` and provides a finer level of control in certain situations.
+
+If the translation fails, it will fall back to the original string that was provided.
+
+<Accordion title="translate method usage">
+
+</Accordion>
+</ResponseField>

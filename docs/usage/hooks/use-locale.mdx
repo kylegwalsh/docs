@@ -1,48 +1,43 @@
 ---
-title: '<TranslatedText />'
-sidebarTitle: '<TranslatedText />'
-description: 'Use the <TranslatedText /> component to automatically translate text elements.'
+title: 'useLocale()'
+sidebarTitle: 'useLocale()'
+description: 'Use the `useLocale()` hook in order to retrieve the user's locale from their device settings.'
 ---
 
 ## Usage
 
+The `useLocale()` hook is helpful for accessing the user's locale based on their device settings in situations where you need the locale string.
 
+You can simply invoke this hook in order to access the locale string and then pass it around as needed.
 
-## Properties
+For example, if you're working with a package that handles translations separately (like `plaid` or `react-native-date-picker`), you may have to provide the locale to their components.
 
-<ResponseField name="context" type="string">
+```tsx
+import React, { useState } from 'react'
+import DatePicker as RNDatePicker from 'react-native-date-picker'
+import { useLocale } from '@lexiconjs/react'
 
-</ResponseField>
+export const DatePicker = () => {
+  const [date, setDate] = useState(new Date())
+  // Example values: en-US, es-ES, etc
+  const { locale } = useLocale()
 
-<ResponseField name="disableTranslation" type="boolean">
+  return (
+   <RNDatePicker 
+     locale={locale} // Pass it down to other libraries
+     date={date} 
+     onDateChange={setDate} 
+   />
+  )
+}
+```
 
-</ResponseField>
+## Response
 
-<ResponseField name="disableContextualTranslation" type="boolean">
+This hook returns the locale string.
 
-</ResponseField>
-
-<ResponseField name="enableSkeleton" type="boolean">
-
-</ResponseField>
-
-<ResponseField name="skeletonColor" type="string">
-
-</ResponseField>
-
-<ResponseField name="from" type="string">
-The current locale of the text we'd like to translate (the language you wrote the app in).
-
-*You should almost never provide this prop because it is set based on the `defaultLanguage` prop provided to the `<TranslationProvider />`.*
+<ResponseField name="locale" type="string">
+The user's detected locale (based on their current device settings).
 
 Example: `en-US`
 </ResponseField>
-
-<ResponseField name="to" type="string">
-The locale we would like to translate the text to.
-
-*You should almost never provide this prop because it is set based on the `targetLanguage` prop provided to the `<TranslationProvider />` (which defaults to the user's detected locale).*
-
-Example: `es-ES`
-</ResponseField>
-

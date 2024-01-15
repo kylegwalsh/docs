@@ -1,4 +1,71 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: 'useTranslation()'
+sidebarTitle: 'useTranslation()'
+description: 'Use the `useTranslation()` hook in order to translate text outside of a component setting.'
 ---
+
+## Usage
+
+The `useTranslation()` hook is helpful for translating text when you can't rely on a component wrapper.
+
+Simply provide the string you want to translate as the first argument of the hook in order to translate it.
+
+You can also provide additional options as the second argument to adjust how translations are handled (the same way you can control translations in the `<TranslatedText />` component).
+
+For example, this hook could be useful when translating one of the properties you are using in another component (like a screen title).
+
+```tsx
+import { useTranslation } from '@lexiconjs/react'
+import { Tabs } from 'expo-router'
+import React from 'react'
+
+export default function TabLayout() {
+  return (
+    <Tabs>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: useTranslation('Track', { context: 'Track my progress' }).translation,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: useTranslation('Profile').translation,
+        }}
+      />
+    </Tabs>
+  )
+}
+```
+
+## Response
+
+This hook returns several fields.
+
+<ResponseField name="translation" type="string">
+The translation of the provided input string.
+
+If the translation fails, it will fall back to the original string that was provided.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+Provides the result status of the translation as a string.
+
+Possible values: "loading" | "success" | "error"
+</ResponseField>
+
+<ResponseField name="isLoading" type="boolean">
+Whether the translation is currently loading.
+</ResponseField>
+
+<ResponseField name="isSuccess" type="boolean">
+Whether the translation was successful.
+</ResponseField>
+
+<ResponseField name="isError" type="boolean">
+Whether the translation experienced an error.
+
+In this scenario, the `translation` field will fall back to the original string that was provided.
+</ResponseField>
+
