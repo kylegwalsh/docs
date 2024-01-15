@@ -1,4 +1,40 @@
 ---
-title: 'Nested Formatting'
-description: 'Start building awesome documentation in under 5 minutes'
+title: "Nested Formatting"
+description: "Lexicon supports nested text formatting out of the box"
 ---
+
+## Overview
+
+Nested formatting is when you style certain words within a block of text differently from the rest. This is usually one of the biggest headaches when dealing with traditional translation methods. However, Lexicon handles it automatically.
+
+For example, once you've [created your custom text component](/docs/usage/components/translated-text#creating-a-custom-text-component), you can simply use it as you'd use normal `<Text />` components.
+
+```tsx
+<Text>Nested formatting helps you <Text style={{ fontWeight: 'bold' }}>emphasize text</Text></Text>
+```
+
+This will be automatically translated as a single block of text and then re-injected with the appropriate styles. This helps to ensure no context is lost when performing translations (which might happen if you translated the two pieces of text individually).
+
+## How it Works
+
+We handle nested translations by transforming component trees into arrays of elements.
+
+To provide further clarity, let's go over an example.
+
+Given the components below...
+
+```tsx
+<Text>Nested formatting helps you <Text style={{ fontWeight: 'bold' }}>emphasize text</Text></Text>
+```
+
+We would generate a string template like `Nested formatting helps you <1>emphasize text</1>`. The `<1>` refers to the corresponding child in the component tree so that we can keep track of it.
+
+We would then translate that block of text into the desired language (say `es-ES`). This would give us a translated template like `El formato anidado te ayuda a <1>enfatizar el texto</1>`.
+
+Finally, we would inject the proper translations, resulting in...
+
+```tsx
+<Text>El formato anidado te ayuda a <Text style={{ fontWeight: 'bold' }}>enfatizar el texto</Text></Text>
+```
+
+By handling all this under the hood, you don't need to worry about managing the translations yourself!

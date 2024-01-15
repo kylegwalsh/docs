@@ -1,4 +1,40 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Fine Tuning Output"
+description: "You can provide additional context to adjust your translations"
 ---
+
+## Providing Context
+
+Sometimes you need additional control over your translations to get the desired output.
+
+This is most obvious when you are translating singular words that lack the context of sentences.
+
+For example, you could interpet the word "Save" in two ways:
+
+1. To keep safe or rescue
+2. To keep and store up 
+
+In order to address this, we allow you to provide `context` to various components and hooks within the Lexicon ecosystem.
+
+In the "Save" example above, you could do the following to indicate that you are referring to banking...
+
+```tsx
+<TranslatedText context="Save money">Save</Text>
+```
+
+## Overall Translation Guidance
+
+You can also provide guidance to the model as a whole by providing the `translationGuidance` prop to the `<TranslationProvider />` component.
+
+This allows you to tweak translations across your entire app if you want to change something.
+
+For example, if you wanted your translations to sound more formal and less casual, you could provide the following guidance...
+
+```tsx
+<TranslationProvider
+  defaultLanguage="en-US" 
+  token={PUBLISHABLE_KEY}
+  translationGuidance="Use formal language">
+  <App />
+</TranslationProvider>
+```
