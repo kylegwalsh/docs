@@ -8,42 +8,78 @@ The `<TranslationProvider />` is required in order to use Lexicon's translation 
 
 ## Usage
 
+You should only import this one time at the top of your application in order to enable translations.
+
+```tsx
+import React from "react"
+import App from "./component/App"
+
+export const TranslatedApp = () => {
+  return (
+    <TranslationProvider 
+      defaultLanguage="en-US" 
+      token={PUBLISHABLE_KEY}
+    >
+      <App />
+    </TranslationProvider>
+  )
+}
+```
+
+*Make sure to replace the `PUBLISHABLE_KEY` with the key you found in your dashboard.*
+
 ## Properties
 
 This component accepts various properties.
 
 <ResponseField name="token" type="string" required>
-
+The token should be the publishable key within your [Lexicon dashboard](https://app.lexiconjs.com/keys) and is required to use Lexicon.
 </ResponseField>
 
-<ResponseField name="defaultLanguage" type="string">
+<ResponseField name="defaultLanguage" type="string" default="en-US">
+The language that you wrote your app in and are translating it from.
 
+Example: `en-US`
 </ResponseField>
 
 <ResponseField name="targetLanguage" type="string">
+In most scenarios, you **should not provide** this field because Lexicon will automatically translate the app into whatever locale we detect on the user's device.
 
+However, if you are testing (highly recommended) or want to manually force the app into a given language, you can provide the language here to force all text into the target language.
+
+Example: `es-ES`
 </ResponseField>
 
 <ResponseField name="translationGuidance" type="string">
+Any additional guidance you'd like to provide to help our system generate your translations.
 
+Most the time you do not need to provide this, but if you are not happy with the translations and want to provide some guidance, this is where you would do it.
+
+Example: `Use formal language`
 </ResponseField>
 
-<ResponseField name="cacheTranslationsOnDevice" type="boolean">
+<ResponseField name="cacheTranslationsOnDevice" type="boolean" default="true">
+Whether we should store the generated translations in a cache on the device. This makes future translations of the same text instantaneous and is a recommended performance improvement.
 
+It is enabled by default, but if you have a scenario where you need to turn this off, please reach out and tell us your use case!
 </ResponseField>
 
-<ResponseField name="ignoreDefaultLanguageCountry" type="boolean">
+<ResponseField name="ignoreDefaultLanguageCountry" type="boolean" default="true">
+This setting is enabled by default and basically says: if the app was written in "en-US", don't translate it to "en-GB". So basically, we just look at the "en" portion of your `defaultLanguage` field and determine whether something needs to be translated.
 
+We do this so that you don't waste translation credits translating "English" into another dialect of "English".
+
+If you set this to **false**, we will translate even when the language is the same if the country / dialect is different. This could be useful in some langauges if there are major differences in dialects.
 </ResponseField>
 
-<ResponseField name="enableSkeletons" type="boolean">
-
+<ResponseField name="enableSkeletons" type="boolean" default="true">
+Whether we should show skeleton placeholders in place of text while the text is being translated.
 </ResponseField>
 
 <ResponseField name="skeletonColor" type="string">
-
+The color we should use for the skeleton placeholders while text is being translated.
 </ResponseField>
 
 <ResponseField name="debug" type="boolean">
-
+Whether we should show additional console.logs. This can be useful when debugging why things are translated certain ways.
 </ResponseField>

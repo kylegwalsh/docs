@@ -11,26 +11,64 @@ The `<TranslatedText />` component is the bread and butter of this library. It w
 You can use this component to translate a text string by simply wrapping the string in your code. 
 
 ```tsx
-<Text>
-</Text>
+import React from "react"
+import { Text } from "react-native"
+
+export const Example = () => {
+  return (
+    <Text>
+      <TranslatedText>
+        This text will be translated!
+      </TranslatedText>
+    </Text>
+  )
+}
 ```
+
+*Note: This component returns a raw string, so it needs to be wrapped in a `<Text />` element in React Native.*
+
+## Creating a Custom Text Component
 
 We usually recommend creating a `<Text />` component in your codebase so that these translations happen automatically behind the scenes. You can set it up to accept a `translationOptions` prop or something similar to pass down any desired translation settings.
 
 ```tsx
+import { TranslatedText, TranslatedTextProps } from '@lexiconjs/react'
+import { Text as NativeText } from 'react-native'
 
+type Props = React.PropsWithChildren<React.ComponentProps<typeof NativeText>> & {
+  /**
+   * Additional translation options that you can pass down to the translator. Feel
+   * free to pass these props down in whatever form is most convenient for you.
+   */
+  translationOptions?: TranslatedTextProps;
+};
+
+/** A standardized text component with the addition of our translator */
+export const Text = ({ children, style, translationOptions, ...props }: Props) => {
+  return (
+    <NativeText style={{ fontSize: 16, ...(typeof style === 'object' && style) }} {...props}>
+      <TranslatedText {...translationOptions}>{children}</TranslatedText>
+    </NativeText>
+  )
+}
 ```
+
+Doing something like above will allow you to simply use `<Text />` as normal within your app without the need to even consider translations (except for certain circumstances where you need to provide `context` or `disableTranslation`).
 
 ## Properties
 
 This component accepts various properties.
 
 <ResponseField name="context" type="string">
+This field allows you to clarify to provide additional context to translations when you feel it's appropriate.
 
+This is most commonly used when you are translating a single word that can be interpreted multiple different ways. However, it can also be useful if you want to slightly tweak how translations are being generated.
+
+For example, you can provide the `context` "Track my progress" when the child string is "Track".
 </ResponseField>
 
 <ResponseField name="disableTranslation" type="boolean">
-
+This field is used to disable the translation of the string within the `<TranslatedText />`. This can be useful if you've created a custom `<Text />` component as mentioned above and don't want to translate a specific text element.
 </ResponseField>
 
 <ResponseField name="disableContextualTranslation" type="boolean">
