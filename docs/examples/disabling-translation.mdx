@@ -1,4 +1,48 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Disabling Translations"
+description: "Lexicon provides the ability to disable certain translations when you need additional control"
 ---
+
+## Disabling Contextual Translation
+
+This is one of the more advanced uses of Lexicon and you probably won't use it that often. However, there are certain scenarios where disabling contextual translation can be helpful to avoid re-translating / re-rendering.
+
+One of the best examples of this is when a user submits an input and you show the result in the UI. Should you translate the value that the user entered into another language? Probably not.
+
+For example, if the user labeled their account something like "test account", we probably shouldn't translate their provided label into another language...
+
+```tsx
+<TranslatedText>Your bank account is called {name}</TranslatedText>
+```
+
+If we were transalting to Spanish, the above would normally render something "Tu cuenta bancaria se llama cuenta de prueba". As you can see, "test account" was completely replaced.
+
+In order to resolve that we could `disableContextualTranslation` as follows...
+
+```tsx
+<TranslatedText disableContextualTranslation>Your bank account is called <TranslatedText disableTranslation>{name}</TranslatedText></TranslatedText>
+```
+
+Note that we also had to `disableTranslation` on the nested text element to avoid translating it. This would result in the following translation: "Tu cuenta bancaria se llama test account"
+
+This makes more sense from a UX perspective in our opinion.
+
+But again, these are pretty niche scenarios and you most likely won't encounter them often. However, when you do, you have the power to change things as you see fit.
+
+## Disabling Individual Translation
+
+There may also be scenarios where you simply want to disable translations to avoid re-translating a specific piece of text over and over. One of the best examples is **numbers**.
+
+We disable the translation of children that we detect are of type "**number**" by default, but if you are rendering a number as a string, we may miss this and try to translate it.
+
+In these scenarios, you can `disableTranslation` by passing a property...
+
+```tsx
+const Example = ({ count }: { count: string }) => {
+  return <TranslatedText disableTranslation>{count}</TranslatedText>
+}
+```
+
+In the above example, we would normally attempt to re-translate the count whenever it changes, but by adding `disableTranslation` will not attempt to translate the text.
+
+There could be other scenarios you encounter where you'd prefer something wasn't translated, so having the ability to disable translations can be very useful.
