@@ -25,13 +25,11 @@
     "name": "Dashboard",
     "url": "https://app.lexiconjs.com"
   },
-  "anchors": [
-    {
-      "name": "Test",
+  "topAnchor": {
+      "name": "Documentation",
       "icon": "book-open-cover",
       "url": "docs/introduction"
-    }
-  ],
+  },
   "navigation": [
     {
       "group": "Get Started",
