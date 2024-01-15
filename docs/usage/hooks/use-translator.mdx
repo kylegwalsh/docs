@@ -52,7 +52,33 @@ This is the same method that is invoked by `useTranslation()` and `<TranslatedTe
 
 If the translation fails, it will fall back to the original string that was provided.
 
-<Accordion title="translate method usage">
+<Accordion title='"translate" Method Usage'>
+The `translate` method is very similar to the `useTranslation()` hook and accepts the same options.
 
+### Options
+
+<ResponseField name="context" type="string">
+Any additional context / guidance that you would like to provide to the translator.
+
+This is most commonly used when you are translating a single word that can be interpreted multiple different ways. However, it can also be useful if you want to slightly tweak how translations are being generated.
+
+For example, you can provide the `context` "Track my progress" when the child string is "Track".
+</ResponseField>
+
+<ResponseField name="from" type="string">
+The current locale of the text we'd like to translate (the language you wrote the app in).
+
+*You should almost never provide this prop because it is set based on the `defaultLanguage` prop provided to the `<TranslationProvider />`.*
+
+Example: `en-US`
+</ResponseField>
+
+<ResponseField name="to" type="string">
+The locale we would like to translate the text to.
+
+*You should almost never provide this prop because it is set based on the `targetLanguage` prop provided to the `<TranslationProvider />` (which defaults to the user's detected locale).*
+
+Example: `es-ES`
+</ResponseField>
 </Accordion>
 </ResponseField>

@@ -69,3 +69,38 @@ Whether the translation experienced an error.
 In this scenario, the `translation` field will fall back to the original string that was provided.
 </ResponseField>
 
+## Options
+
+This hook accepts various secondary options.
+
+<ResponseField name="context" type="string">
+Any additional context / guidance that you would like to provide to the translator.
+
+This is most commonly used when you are translating a single word that can be interpreted multiple different ways. However, it can also be useful if you want to slightly tweak how translations are being generated.
+
+For example, you can provide the `context` "Track my progress" when the child string is "Track".
+</ResponseField>
+
+<ResponseField name="disableTranslation" type="boolean" default="false">
+Whether to disable the translation of the string within the `useTranslation()`.
+
+You probably won't use this option as much on the `useTranslation()` hook as you would on the `<TranslatedText />` component.
+</ResponseField>
+
+<ResponseField name="from" type="string">
+The current locale of the text we'd like to translate (the language you wrote the app in).
+
+*You should almost never provide this prop because it is set based on the `defaultLanguage` prop provided to the `<TranslationProvider />`.*
+
+Example: `en-US`
+</ResponseField>
+
+<ResponseField name="to" type="string">
+The locale we would like to translate the text to.
+
+*You should almost never provide this prop because it is set based on the `targetLanguage` prop provided to the `<TranslationProvider />` (which defaults to the user's detected locale).*
+
+Example: `es-ES`
+</ResponseField>
+
+

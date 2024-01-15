@@ -29,7 +29,7 @@ export const Example = () => {
 
 ## Creating a Custom Text Component
 
-We usually recommend creating a `<Text />` component in your codebase so that these translations happen automatically behind the scenes. You can set it up to accept a `translationOptions` prop or something similar to pass down any desired translation settings.
+We usually recommend creating a custom `<Text />` component in your codebase that utilizes `<TranslatedText />` under the hood so that these translations happen automatically behind the scenes. You can set it up to accept a `translationOptions` prop or something similar to pass down any desired translation settings.
 
 ```tsx
 import { TranslatedText, TranslatedTextProps } from '@lexiconjs/react'
@@ -53,34 +53,48 @@ export const Text = ({ children, style, translationOptions, ...props }: Props) =
 }
 ```
 
-Doing something like above will allow you to simply use `<Text />` as normal within your app without the need to even consider translations (except for certain circumstances where you need to provide `context` or `disableTranslation`).
+Doing something like above will allow you to simply use `<Text />` as normal within your app without the need to even consider translations most the time.
 
 ## Properties
 
 This component accepts various properties.
 
 <ResponseField name="context" type="string">
-This field allows you to clarify to provide additional context to translations when you feel it's appropriate.
+Any additional context / guidance that you would like to provide to the translator.
 
 This is most commonly used when you are translating a single word that can be interpreted multiple different ways. However, it can also be useful if you want to slightly tweak how translations are being generated.
 
 For example, you can provide the `context` "Track my progress" when the child string is "Track".
 </ResponseField>
 
-<ResponseField name="disableTranslation" type="boolean">
-This field is used to disable the translation of the string within the `<TranslatedText />`. This can be useful if you've created a custom `<Text />` component as mentioned above and don't want to translate a specific text element.
+<ResponseField name="disableTranslation" type="boolean" default="false">
+Whether to disable the translation of the string within the `<TranslatedText />`.
+
+This can be useful if you've created a custom `<Text />` component as mentioned above and don't want to translate a specific text element.
 </ResponseField>
 
-<ResponseField name="disableContextualTranslation" type="boolean">
+<ResponseField name="disableContextualTranslation" type="boolean" default="false">
+Whether to disable the translation of any text strings nested one or more levels deep in the component tree within the `<TranslatedText />` (not top-level text).
 
+This is more of an advanced feature and is usually relevant when nesting react elements within text or when applying nested formatting.
+
+By default, we will translate all strings and other nodes within `<TranslatedText />` together in order to maintain the context of the original message.
+
+See the [disabling translation example](/docs/examples/disabling-translation) for more information on how you can use this.
 </ResponseField>
 
-<ResponseField name="enableSkeleton" type="boolean">
+<ResponseField name="enableSkeleton" type="boolean" default="true">
+Whether to enable the skeleton placeholder while the text is being translated on this element.
 
+You can disable the skeleton of a particular piece of text by setting this to **false**.
+
+You can also disable skeletons app-wide by setting `enableSkeletons` to **false** on the `<TranslationProvider />`.
 </ResponseField>
 
 <ResponseField name="skeletonColor" type="string">
+The color to use for the skeleton placeholder while the text is being translated on this element.
 
+You can also change the skeleton color app-wide by setting `skeletonColor` on the `<TranslationProvider />`.
 </ResponseField>
 
 <ResponseField name="from" type="string">
