@@ -1,86 +1,81 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: "Quick Start"
+description: "Start translating your app into every language in just 5 minutes."
 ---
 
-## Setup your development
+This quick start guide will get you up and running with Lexicon.
 
-Learn how to update your docs locally and and deploy them to the public.
+<Steps titleSize="h3">
 
-### Edit and preview
+<Step title="Create a Lexicon account">
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
-  </Accordion>
-</AccordionGroup>
+Go to [app.lexiconjs.com](https://app.lexiconjs.com) and create a free account.
 
-### Deploy your changes
+</Step>
 
-<AccordionGroup>
+<Step title="Get your publishable key">
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+Grab your publishable key from your dashboard's [API Keys](https://app.lexiconjs.com/keys) tab and save it for later.
 
-</AccordionGroup>
+![Publishable Key Location](/images/publishable-key-location.png)
 
-## Update your docs
+</Step>
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+<Step title="Install the @lexiconjs/react module">
 
-<CardGroup>
+Add the **@lexiconjs/react** package to your existing project.
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
+In a terminal window run:
 
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
+<CodeGroup>
 
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
+```bash npm
+npm install @lexiconjs/react --save
+```
 
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
+```bash pnpm
+pnpm install @lexiconjs/react --save
+```
 
-</CardGroup>
+```bash yarn
+yarn add @lexiconjs/react
+```
+
+</CodeGroup>
+
+</Step>
+
+<Step title="Wrap your app in <TranslationProvider />">
+
+The `<TranslationProvider />` component enables the automatic translation of your app's text inside of other components. Import it into your codebase by adding `import { TranslationProvider } from '@lexiconjs/react'` at the top of your entry file and then wrap your app with it.
+
+```tsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
+import { TranslationProvider } from '@lexiconjs/react'
+ 
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <TranslationProvider defaultLanguage="en-US" token={PUBLISHABLE_KEY}>
+      <App />
+    </ClerkProvider>
+  </React.StrictMode>,
+)
+```
+
+*Make sure to replace the `PUBLISHABLE_KEY` with the key you found in your dashboard.*
+
+</Step>
+
+<Step title="Use Lexicon components to translate your app">
+
+#### Using `<TranslatedText />`
+
+#### Using `useTranslation()`
+
+
+</Step>
+
+</Steps>
