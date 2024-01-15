@@ -25,10 +25,8 @@
     "name": "Dashboard",
     "url": "https://app.lexiconjs.com"
   },
-  "topAnchor": {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "docs/introduction"
+  "primaryTab": {
+    "name": "Documentation"
   },
   "navigation": [
     {
