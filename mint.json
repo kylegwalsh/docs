@@ -49,7 +49,7 @@
     },
     {
       "group": "Examples",
-      "pages": ["docs/examples/nested-formatting"]
+      "pages": ["docs/examples/fine-tuning-output","docs/examples/nested-formatting","docs/examples/disable-translation"]
     }
   ],
   "footerSocials": {
