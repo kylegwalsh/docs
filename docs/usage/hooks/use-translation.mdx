@@ -1,14 +1,14 @@
 ---
 title: "useTranslation()"
 sidebarTitle: "useTranslation()"
-description: "Use the `useTranslation()` hook in order to translate text outside of a component setting."
+description: "Use the `useTranslation()` hook to translate text outside of a component wrapper."
 ---
 
 ## Usage
 
 The `useTranslation()` hook is helpful for translating text when you can't rely on a component wrapper.
 
-Simply provide the string you want to translate as the first argument of the hook in order to translate it.
+Simply provide the string you want to translate as the first argument of the hook to translate it.
 
 You can also provide additional options as the second argument to adjust how translations are handled (the same way you can control translations in the `<TranslatedText />` component).
 
@@ -74,9 +74,9 @@ In this scenario, the `translation` field will fall back to the original string 
 This hook accepts various secondary options.
 
 <ResponseField name="context" type="string">
-Any additional context / guidance that you would like to provide to the translator.
+Any additional context/guidance that you would like to provide to the translator.
 
-This is most commonly used when you are translating a single word that can be interpreted multiple different ways. However, it can also be useful if you want to slightly tweak how translations are being generated.
+This is most commonly used when you are translating a single word that can be interpreted in multiple different ways. However, it can also be useful if you want to slightly tweak how translations are being generated.
 
 For example, you can provide the `context` "Track my progress" when the child string is "Track".
 </ResponseField>

@@ -1,7 +1,7 @@
 ---
 title: "useTranslator()"
 sidebarTitle: "useTranslator()"
-description: "Use the `useTranslator()` hook in order to access the underlying `translate` method and gain additional control."
+description: "Use the `useTranslator()` hook to access the underlying `translate` method and gain additional control."
 ---
 
 ## Usage
@@ -12,7 +12,7 @@ To use it, simply call the hook and extract the `translate` method. Then, you ca
 
 It can be useful in scenarios where you need finer grain control over translations, but most scenarios can be addressed via the `useTranslation()` hook.
 
-It's first argument should be the string you'd like to translate. You can also provide additional options as the second argument to adjust how translations are handled (the same way you can control translations in the `<TranslatedText />` component).
+Its first argument should be the string you'd like to translate. You can also provide additional options as the second argument to adjust how translations are handled (the same way you can control translations in the `<TranslatedText />` component).
 
 ```tsx
 import { useTranslator } from '@lexiconjs/react'
@@ -58,7 +58,7 @@ The `translate` method is very similar to the `useTranslation()` hook and accept
 ### Options
 
 <ResponseField name="context" type="string">
-Any additional context / guidance that you would like to provide to the translator.
+Any additional context/guidance that you would like to provide to the translator.
 
 This is most commonly used when you are translating a single word that can be interpreted multiple different ways. However, it can also be useful if you want to slightly tweak how translations are being generated.
 

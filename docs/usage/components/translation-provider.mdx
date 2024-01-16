@@ -6,9 +6,9 @@ description: "Wrap your app in the <TranslationProvider /> component to enable L
 
 ## Usage
 
-The `<TranslationProvider />` is required in order to use Lexicon's translation features. You must include it at the top of your component tree as a wrapper - as mentioned in our [quick start guide](/docs/get-started/quickstart).
+The `<TranslationProvider />` is required to use Lexicon's translation features. You must include it at the top of your component tree as a wrapper - as mentioned in our [quick start guide](/docs/get-started/quickstart).
 
-You should only import this one time at the top of your application in order to enable translations.
+You should only import this one time at the top of your application to enable translations.
 
 ```tsx
 import React from "react"
@@ -53,7 +53,7 @@ Example: `es-ES`
 <ResponseField name="translationGuidance" type="string">
 Any additional guidance you'd like to provide to help our system generate your translations.
 
-Most the time you do not need to provide this, but if you are not happy with the translations and want to provide some guidance, this is where you would do it.
+Most of the time you do not need to provide this, but if you are not happy with the translations and want to provide some guidance, this is where you would do it.
 
 Example: `Use formal language`
 </ResponseField>
@@ -69,7 +69,7 @@ This setting is enabled by default and basically says: if the app was written in
 
 We do this so that you don't waste translation credits translating "English" into another dialect of "English".
 
-If you set this to **false**, we will translate even when the language is the same if the country / dialect is different. This could be useful in some langauges if there are major differences in dialects.
+If you set this to **false**, we will translate even when the language is the same if the country/dialect is different. This could be useful in some languages if there are major differences in dialects.
 </ResponseField>
 
 <ResponseField name="enableSkeletons" type="boolean" default="true">
@@ -81,5 +81,5 @@ The color we should use for the skeleton placeholders while text is being transl
 </ResponseField>
 
 <ResponseField name="debug" type="boolean" default="false">
-Whether we should show additional console.logs. This can be useful when debugging why things are translated certain ways.
+Whether we should show additional console.logs. This can be useful when debugging why things are translated in certain ways.
 </ResponseField>

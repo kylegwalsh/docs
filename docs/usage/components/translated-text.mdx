@@ -44,25 +44,25 @@ type Props = React.PropsWithChildren<React.ComponentProps<typeof NativeText>> & 
 };
 
 /** A standardized text component with the addition of our translator */
-export const Text = ({ children, style, translationOptions, ...props }: Props) => {
+export const Text = ({ children, translationOptions, ...props }: Props) => {
   return (
-    <NativeText style={{ fontSize: 16, ...(typeof style === 'object' && style) }} {...props}>
+    <NativeText {...props}>
       <TranslatedText {...translationOptions}>{children}</TranslatedText>
     </NativeText>
   )
 }
 ```
 
-Doing something like above will allow you to simply use `<Text />` as normal within your app without the need to even consider translations most the time.
+Doing something like above will allow you to simply use `<Text />` as normal within your app without the need to even consider translations most of the time.
 
 ## Properties
 
 This component accepts various properties.
 
 <ResponseField name="context" type="string">
-Any additional context / guidance that you would like to provide to the translator.
+Any additional context/guidance that you would like to provide to the translator.
 
-This is most commonly used when you are translating a single word that can be interpreted multiple different ways. However, it can also be useful if you want to slightly tweak how translations are being generated.
+This is most commonly used when you are translating a single word that can be interpreted in multiple different ways. However, it can also be useful if you want to slightly tweak how translations are being generated.
 
 For example, you can provide the `context` "Track my progress" when the child string is "Track".
 </ResponseField>
@@ -78,7 +78,7 @@ Whether to disable the translation of any text strings nested one or more levels
 
 This is more of an advanced feature and is usually relevant when nesting react elements within text or when applying nested formatting.
 
-By default, we will translate all strings and other nodes within `<TranslatedText />` together in order to maintain the context of the original message.
+By default, we will translate all strings and other nodes within `<TranslatedText />` together to maintain the context of the original message.
 
 See the [disabling translation example](/docs/examples/disabling-translation) for more information on how you can use this.
 </ResponseField>

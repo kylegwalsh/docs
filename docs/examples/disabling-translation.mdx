@@ -15,7 +15,7 @@ For example, if the user labeled their account something like "test account", we
 <TranslatedText>Your bank account is called {name}</TranslatedText>
 ```
 
-If we were transalting to Spanish, the above would normally render something "Tu cuenta bancaria se llama cuenta de prueba". As you can see, "test account" was completely replaced.
+If we were translating to Spanish, the above would normally render something "Tu cuenta bancaria se llama cuenta de prueba". As you can see, "test account" was completely replaced.
 
 In order to resolve that we could `disableContextualTranslation` as follows...
 
@@ -43,6 +43,6 @@ const Example = ({ count }: { count: string }) => {
 }
 ```
 
-In the above example, we would normally attempt to re-translate the count whenever it changes, but by adding `disableTranslation` will not attempt to translate the text.
+In the above example, we would normally attempt to re-translate the count whenever it changes, but by adding `disableTranslation`, it will not attempt to translate the text.
 
 There could be other scenarios you encounter where you'd prefer something wasn't translated, so having the ability to disable translations can be very useful.
