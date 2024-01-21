@@ -56,6 +56,9 @@
     "github": "https://github.com/odin-labs-tech"
   },
   "analytics": {
+    "ga4": {
+      "measurementId": "G-Y9X13C0GZ2"
+    },
     "posthog": {
       "apiHost": "https://app.posthog.com",
       "apiKey": "phc_jjPljLyM5XVRxFsOpeWXCx25JRYqtgPbvNCyDU2pX4h"
