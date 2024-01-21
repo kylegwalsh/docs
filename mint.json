@@ -13,11 +13,11 @@
     "anchors": {
       "from": "#503FC9",
       "to": "#433896"
+    },
+    "background": {
+      "light": "#FFFFFF",
+      "dark": "#070512"
     }
-  },
-  "background": {
-    "light": "#FFFFFF",
-    "dark": "#070512"
   },
   "topbarLinks": [
     {
@@ -54,5 +54,11 @@
   ],
   "footerSocials": {
     "github": "https://github.com/odin-labs-tech"
+  },
+  "analytics": {
+    "posthog": {
+      "apiHost": "https://app.posthog.com",
+      "apiKey": "phc_jjPljLyM5XVRxFsOpeWXCx25JRYqtgPbvNCyDU2pX4h"
+    }
   }
 }
