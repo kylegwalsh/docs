@@ -41,10 +41,46 @@ yarn add @lexiconjs/react
 ```
 </CodeGroup>
 
-<br />
+</Step>
+
+<Step title="Install and configure the react-native-mmkv module (only for React Native)">
+
+If your app is using React Native, you will also need to add the **react-native-mmkv** package to your existing project and ensure it's properly linked using one of the instruction sets below (Expo or React Native).
+
+*We use this package to ensure caching is as fast as possible on mobile devices. You can review their [docs](https://github.com/mrousavy/react-native-mmkv) for more details.*
+
+#### React Native
+
+In a terminal window run:
+
+<CodeGroup>
+```bash npm
+npm install react-native-mmkv --save
+cd ios && pod install
+```
+
+```bash pnpm
+pnpm install react-native-mmkv --save
+cd ios && pod install
+```
+
+```bash yarn
+yarn add react-native-mmkv
+cd ios && pod install
+```
+</CodeGroup>
+
+#### Expo
+
+In a terminal window run:
+
+```bash
+npx expo install react-native-mmkv
+npx expo prebuild
+```
 
 <Tip>
-Note: If you are using **expo**, you will need to use the [expo-dev-client](https://docs.expo.dev/guides/local-app-development/#local-builds-with-expo-dev-client) in order to run this library locally.
+Note: If you are using **expo**, you will need to use the [expo-dev-client](https://docs.expo.dev/guides/local-app-development/#local-builds-with-expo-dev-client) in order to run **@lexiconjs/react** locally.
 </Tip>
 
 </Step>
