@@ -38,7 +38,7 @@
       "group": "Usage",
       "pages": [
         {
-          "group": "Componentss",
+          "group": "Components",
           "pages": ["docs/usage/components/translation-provider", "docs/usage/components/translated-text"]
         },
         {
