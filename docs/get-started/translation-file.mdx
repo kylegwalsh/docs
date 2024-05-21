@@ -31,7 +31,7 @@ export const TranslatedApp = () => {
 
 Technically, you don't have to! Lexicon will work out of the box without doing this additional setup.
 
-However, you can **reduce the number of translation credits you consume** and **speed up load times** by generating this file up front.
+However, you can **reduce the number of translation credits you consume** and **speed up load times** by generating this file upfront.
 
 ## How it Works
 
@@ -42,9 +42,9 @@ Let's work through an example to help explain how things work behind the scenes.
 We will do the following for every piece of content in your app:
 
 1. First, we check to see whether your translation file contains an entry for the content translated to **"es-ES" [Spanish Spain]**.
-2. If we do not find an entry for **"es-ES" [Spanish Spain]** AND you have left [fallbackToBaseLanguage](docs/usage/components/translation-provider#properties) as `true` in your `TranslationProvider` *(this is the default setting)*, then we will check to see whether your translation file contains an entry for the content translated to **"es" [Spanish]**. This would be the most common scenario if you're using translation files since it's hard to translate an app ahead of time for every single possible dialect *(we usually recommend just translating the base language to save on time)*.
+2. If we do not find an entry for **"es-ES" [Spanish Spain]** AND you have left [fallbackToBaseLanguage](docs/usage/components/translation-provider#properties) as `true` in your `TranslationProvider` *(this is the default setting)*, then we will check to see whether your translation file contains an entry for the content translated to **"es" [Spanish]**. This would be the most common scenario if you're using translation files since it's hard to translate an app ahead of time for every single possible dialect *(we usually recommend just translating the base language to save time)*.
 3. If we could not find an entry in your translation file, we will then check the **local device cache** to see if we had previously translated this particular content to avoid re-querying the backend. This would be the very first step we perform if you have not provided a translation file.
-4. If we could not find an entry in the local device cache, we will then fallback to **generating a fresh translation in our backend**. This is the only scenario where you may see a few milliseconds of delay when loading translations. However, you should only see this delay when loading new content *(all old content will be cached after the first time it's generated)*.
+4. If we could not find an entry in the local device cache, we will then fall back to **generating a fresh translation in our backend**. This is the only scenario where you may see a few milliseconds of delay when loading translations. However, you should only see this delay when loading new content *(all old content will be cached after the first time it's generated)*.
 
 ## How to Generate a Translation File
 
@@ -111,7 +111,7 @@ export const TranslatedApp = () => {
 }
 ```
 
-*Note: Make sure your remove the `targetLanguage` prop once you're done generating translations or your app will just always be in Spanish!*
+*Note: Make sure you remove the `targetLanguage` prop once you're done generating translations or your app will just always be in Spanish!*
 
 ## Optimizing Your Translations Down the Road
 
